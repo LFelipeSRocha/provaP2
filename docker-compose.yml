@@ -29,7 +29,7 @@ services:
     command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=NovaSenha123
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.jupyterlab.rule=Host(`186.251.61.230`)"
+      - "traefik.http.routers.jupyterlab.rule=Host(`10.10.122.36`)"
       - "traefik.http.services.jupyterlab.loadbalancer.server.port=8888"
       - "traefik.http.routers.jupyterlab.entrypoints=web"
 
@@ -74,6 +74,6 @@ services:
       - spark-master
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.spark-worker-2.rule=PathPrefix(`/spark-worker-2`) || (HeadersRegexp(`Referer`, `http://186.251.61.230/spark-worker-2`) && PathPrefix(`/static`))"
+      - "traefik.http.routers.spark-worker-2.rule=PathPrefix(`/spark-worker-2`) || (HeadersRegexp(`Referer`, `http://10.10.122.36/spark-worker-2`) && PathPrefix(`/static`))"
       - "traefik.http.services.spark-worker-2.loadbalancer.server.port=8081"
       - "traefik.http.routers.spark-worker-2.entrypoints=web"
