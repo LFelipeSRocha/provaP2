@@ -42,7 +42,7 @@ services:
     labels:
       - "traefik.enable=true"
       #- "traefik.http.routers.spark-master.rule=PathPrefix(`/spark-master`) || (HeadersRegexp(`Referer`, `http://localhost/spark-master`) && (PathPrefix(`/static`) || PathPrefix(`/app`) ))"
-      - "traefik.http.routers.spark-master.rule=PathPrefix(`/spark-master`) || ((HeadersRegexp(`Referer`, `http://186.251.61.230/spark-master`) || HeadersRegexp(`Referer`, `http://localhost/app`)) && (PathPrefix(`/static`) || PathPrefix(`/app`) ))"
+      - "traefik.http.routers.spark-master.rule=PathPrefix(`/spark-master`) || ((HeadersRegexp(`Referer`, `http://186.251.61.230/spark-master`) || HeadersRegexp(`Referer`, `http://186.251.61.230/app`)) && (PathPrefix(`/static`) || PathPrefix(`/app`) ))"
       - "traefik.http.services.spark-master.loadbalancer.server.port=8080"
       - "traefik.http.routers.spark-master.entrypoints=web"
 
